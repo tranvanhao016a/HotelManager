@@ -1,0 +1,165 @@
+<body class="app sidebar-mini rtl">
+    <app-header-admin></app-header-admin>
+    <main class="app app-ban-hang">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb">
+              <li class="breadcrumb-item"><a href="#"><b>Room voucher details</b></a></li>
+            </ul>
+            <div id="clock"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="tile">
+            <h3 class="tile-title">Room information</h3>
+          <div class="du--lieu-san-pham">
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th class="so--luong">Room code</th>
+                  <th class="so--luong">Image</th>
+                  <th class="so--luong">Customers number</th>
+                  <th class="so--luong"> Check-in Date</th>
+                  <th class="so--luong"> Check-out Dat </th>
+                  <th class="so--luong">Status</th>
+                  <th class="so--luong">Room price</th>
+                  <th class="so--luong">Kind of room</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>202</td>
+                    <td><img src="../../../../assets/img-phong/phong-junior-suite.jpg" alt="" width="100px;"></td>
+                    <td>4</td>
+                    <td>15/02/2022</td>
+                    <td>18/02/2022 </td>
+                    <td><span class="badge bg-danger">Rent</span></td>
+                    <td>1.900.000 đ</td>
+                    <td>Deluxe</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+
+          <div class="tile">
+            <h3 class="tile-title">Thông tin dịch vụ sử dụng </h3>
+          <div class="du--lieu-san-pham">
+            <table class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th class="so--luong">Service code</th>
+                  <th class="so--luong">Service name</th>
+                  <th class="so--luong" >Unit </th>
+                  <th class="so--luong">Service prices</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>150 </td>
+                  <td>Spa </td>
+                  <!-- <td><img src="/img-sanpham/reno.jpg" alt="" width="50px;"></td>-->
+                  <td>2 people/1 person</td> 
+                  <td >500.000 VND</td>
+                </tr>
+                <tr>
+                  <td>152 </td>
+                  <td>Buffet </td>
+                  <!-- <td><img src="/img-sanpham/matda.jpg" alt="" width="50px;"></td>-->
+                  <td>2 people/1 person</td> 
+                  <td>250.000 VND</td>
+                </tr>
+                <tr>
+                  <td>158 </td>
+                  <td>Sân golf</td>
+                  <!-- <td><img src="/img-sanpham/ghethera.jpg" alt="" width="50px;"></td>-->
+                  <td>2 people/1 h</td> 
+                  <td>150.000 VND</td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="tile">
+            <h3 class="tile-title">Billing Information</h3>
+            <div class="row">
+              <div class="form-group  col-md-10">
+                <label class="control-label">Customer's full name</label>
+                <input class="form-control" type="text"  value="Nguyen Van A">
+              </div>
+              <div class="form-group  col-md-12">
+                <label class="control-label">Staff set up</label>
+                <input class="form-control" type="text"  value="Nhật Kim Anh">
+              </div>
+              <div class="form-group  col-md-12">
+                <label class="control-label">Order Notes</label>
+                <textarea class="form-control" rows="4" value=""></textarea>
+              </div>
+    
+            </div>
+            <div class="row">
+             
+              <div class="form-group  col-md-12">
+                <label class="control-label">Payments</label>
+                <select class="form-control" id="exampleSelect2" required>
+                  <option>Transfer payments</option>
+                  <option>Pay cash at the counter</option>
+                </select>
+              </div>
+              <!-- <div class="form-group  col-md-6">
+                <label class="control-label">Tạm tính tiền hàng: </label>
+                <p class="control-all-money-tamtinh">= 129.397.213 VNĐ</p>
+              </div>
+              <div class="form-group  col-md-6">
+                <label class="control-label">Giảm giá (F7): </label>
+                <input class="form-control" type="number" value="0">
+              </div> -->
+              <div class="form-group  col-md-6">
+                <label class="control-label">Total payment: </label>
+                <p class="control-all-money-total">= 129.397.213 VNĐ</p>
+              </div>
+              <div class="form-group  col-md-6">
+                <label class="control-label">Customers give money (F8): </label>
+                <input class="form-control" type="number" value="290000">
+              </div>
+              <div class="form-group  col-md-12">
+                <label class="control-label">Debt customers: </label>
+                <p class="control-all-money"> - 129.397.213 VNĐ</p>
+              </div>
+              <div class="tile-footer col-md-12">
+                <button class="btn btn-primary luu-san-pham " style="background-color: red;" type="button" onclick="window.location.href='/reservation'"> Confirm</button>
+              </div>
+              <div class="tile-footer col-md-12">
+                <button class="btn btn-primary luu-san-pham" type="button" onclick="window.location.href='/reservation'"> Back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </main>
+
+    <script>
+      // Modal popup 
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+  </body>

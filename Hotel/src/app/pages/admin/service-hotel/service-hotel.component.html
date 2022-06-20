@@ -1,0 +1,104 @@
+<body class="app sidebar-mini rtl  pace-done">
+    <!-- <div class="pace  pace-inactive">
+      <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div> -->
+  <app-header-admin></app-header-admin>
+  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+  <app-sidebar></app-sidebar>
+  <main class="app-content">
+    <div class="app-title">
+      <ul class="app-breadcrumb breadcrumb side">
+        <li class="breadcrumb-item active"><a href="#"><b>Service List</b></a></li>
+      </ul>
+      <div id="clock"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <div class="row element-button">
+              <div class="col-sm-2">
+                <a class="btn btn-add btn-sm" (click)="navigate('/add-service')" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
+                  Add new service</a>
+              </div>
+          
+            </div>
+            <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
+              id="sampleTable">
+              <thead>
+                <tr>
+                  <th width="10">
+                    <input type="checkbox" id="all" onclick="checkbox()"></th>
+                  <th width="15%">Service ID</th>
+                  <th>Service name</th>
+                  <th>Unit</th>
+                  <th>Service prices</th>
+                  <th width="100">Feature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="10">
+                  <input type="checkbox" name="check1" value="1"></td>
+                  <td>150 </td>
+                  <td>Spa </td>
+                  <!-- <td><img src="/img-sanpham/reno.jpg" alt="" width="50px;"></td>-->
+                  <td>1 person</td> 
+                  <td >500.000 VND</td>
+                  <td class="table-td-center">
+                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                    (click)="navigate('/edit-service')"><i class="fas fa-edit"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                    <td width="10">
+                    <input type="checkbox" name="check1" value="1"></td>
+                    <td>152 </td>
+                    <td>Buffet </td>
+                    <!-- <td><img src="/img-sanpham/matda.jpg" alt="" width="50px;"></td>-->
+                    <td>1 person</td> 
+                    <td>250.000 VND</td>
+                    <td class="table-td-center">
+                      <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      (click)="navigate('/edit-service')"><i class="fas fa-edit"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="10">
+                    <input type="checkbox" name="check1" value="1"></td>
+                    <td>158 </td>
+                    <td>Sân golf</td>
+                    <!-- <td><img src="/img-sanpham/ghethera.jpg" alt="" width="50px;"></td>-->
+                    <td>1h</td> 
+                    <td>150.000 VND</td>
+                    <td class="table-td-center">
+                      <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                      </button>
+                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      (click)="navigate('/edit-service')"><i class="fas fa-edit"></i>
+                      </button>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+    </body>
+  

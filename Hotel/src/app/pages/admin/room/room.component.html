@@ -1,0 +1,318 @@
+<body class="app sidebar-mini rtl  pace-done">
+  <app-header-admin></app-header-admin>
+  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+  <app-sidebar></app-sidebar>
+  <main class="app-content">
+    <div class="app-title">
+      <ul class="app-breadcrumb breadcrumb side">
+        <li class="breadcrumb-item active"><a href="#"><b>Room list</b></a></li>
+      </ul>
+      <div id="clock"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <div class="tile-body">
+            <div class="row element-button">
+              <div class="col-sm-2">
+                <a class="btn btn-add btn-sm" href="form-add-nhan-vien.html" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
+                  Add new room</a>
+              </div>
+            </div>
+            <div id="sampleTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                </div>
+                <div class="col-sm-12 col-md-6">
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table table-hover table-bordered dataTable no-footer" id="sampleTable" role="grid"
+                    aria-describedby="sampleTable_info">
+                    <thead>
+                      <tr role="row">
+                        <th width="10" class="sorting_asc" tabindex="0" aria-controls="sampleTable" rowspan="1"
+                          colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending"
+                          style="width: 13px;">
+                          <input type="checkbox" id="all" onclick="checkbox()">
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Mã phòng: activate to sort column ascending" style="width: 107px;">Room ID</th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Ảnh: activate to sort column ascending" style="width: 126px;">Image</th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Số khách tối đa: activate to sort column ascending" style="width: 73px;">Maximum
+                          number of guests</th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Tình trạng: activate to sort column ascending" style="width: 83px;">Status</th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Giá tiền: activate to sort column ascending" style="width: 104px;">Price</th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Loại phòng: activate to sort column ascending" style="width: 134px;">Kind of room
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Chức năng: activate to sort column ascending" style="width: 90px;">Feature</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr role="row" class="odd">
+                        <td width="10" class="sorting_1"><input type="checkbox" name="check1" value="1"></td>
+                        <td>201</td>
+                        <td><img src="../../../../assets/img-phong/phong-standard.jpg" alt="" width="100px;"></td>
+                        <td>4</td>
+                        <td><span class="badge bg-danger">Rent</span></td>
+                        <td>1.800.000 đ</td>
+                        <td>Standard</td>
+                        <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                        </td>
+                      </tr>
+                      <tr role="row" class="even">
+                        <td width="10" class="sorting_1"><input type="checkbox" name="check1" value="1"></td>
+                        <td>202</td>
+                        <td><img src="../../../../assets/img-phong/phong-junior-suite.jpg" alt="" width="100px;"></td>
+                        <td>4</td>
+                        <td><span class="badge bg-danger">Rent</span></td>
+                        <td>1.900.000 đ</td>
+                        <td>Deluxe</td>
+                        <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                        </td>
+                      </tr>
+                      <tr role="row" class="odd">
+                        <td width="10" class="sorting_1"><input type="checkbox" name="check1" value="1"></td>
+                        <td>203</td>
+                        <td><img src="../../../../assets/img-phong/phong-superior.jpg" alt="" width="100px;"></td>
+                        <td>6</td>
+                        <td><span class="badge bg-success">Room Available</span></td>
+                        <td>3.235.000 đ</td>
+                        <td>Suite</td>
+                        <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                          </button>
+                          <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                            data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button>
+                        </td>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="sampleTable_info" role="status" aria-live="polite">Showing 1 to 10 of
+                    16 categories</div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="sampleTable_paginate">
+                    <ul class="pagination">
+                      <li class="paginate_button page-item previous disabled" id="sampleTable_previous"><a href="#"
+                          aria-controls="sampleTable" data-dt-idx="0" tabindex="0" class="page-link">Back</a></li>
+                      <li class="paginate_button page-item active"><a href="#" aria-controls="sampleTable"
+                          data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                      <li class="paginate_button page-item "><a href="#" aria-controls="sampleTable" data-dt-idx="2"
+                          tabindex="0" class="page-link">2</a></li>
+                      <li class="paginate_button page-item next" id="sampleTable_next"><a href="#"
+                          aria-controls="sampleTable" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+    data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="form-group  col-md-12">
+              <span class="thong-tin-thanh-toan">
+                <h5>Edit basic room information</h5>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label">Room code </label>
+              <input class="form-control" type="number" value="201">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Image</label>
+              <input class="form-control" type="text" required="" value="Family's room">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Maximum number of guests</label>
+              <input class="form-control" type="text" required="" value="4">
+            </div>
+            <div class="form-group col-md-6 ">
+              <label for="exampleSelect1" class="control-label">Status</label>
+              <select class="form-control" id="exampleSelect1">
+                <option>Rent</option>
+                <option>Room Available</option>
+                <option>Cleaning up</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Price</label>
+              <input class="form-control" type="text" value="5.600.000">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="exampleSelect1" class="control-label">Kind of room</label>
+              <select class="form-control" id="exampleSelect1">
+                <!-- <option value="">Choose a Room from the List</option> -->
+                <option value="connecting">Normal room</option>
+                <option value="adjoining">Family's room</option>
+                <option value="adjacent">Single room</option>
+                <option value="adjacent">Double room</option>
+                <option value="adjacent">Deluxe Room</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <a href="#" style="    float: right;
+      font-weight: 600;
+      color: #ea0000;">Advanced Editing</a>
+          <br>
+          <br>
+          <button class="btn btn-save" type="button">Save</button>
+          <a class="btn btn-cancel" data-dismiss="modal" href="#">Cancel</a>
+          <br>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../../assets/doc/js/jquery-3.2.1.min.js"></script>
+  <script src="../../../../assets/doc/js/popper.min.js"></script>
+  <script src="../../../../assets/doc/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="src/jquery.table2excel.js"></script>
+  <script src="../../../../assets/doc/js/main.js"></script>
+  <script src="../../../../assets/doc/js/plugins/pace.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="../../../../assets/doc/js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="../../../../assets/doc/js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $('#sampleTable').DataTable();
+    //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+  </script>
+  <script>
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+    }
+    jQuery(function () {
+      jQuery(".trash").click(function () {
+        swal({
+          title: "Cảnh báo",
+          text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+          buttons: ["Hủy bỏ", "Đồng ý"],
+        })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Đã xóa thành công.!", {
+
+              });
+            }
+          });
+      });
+    });
+    oTable = $('#sampleTable').dataTable();
+    $('#all').click(function (e) {
+      $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+      e.stopImmediatePropagation();
+    });
+  </script>
+  <script type="text/javascript">
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+      // ]]>
+  </script>
+
+</body>

@@ -1,0 +1,174 @@
+<body  class="app sidebar-mini rtl  pace-done">
+    <app-header-admin></app-header-admin>
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <app-sidebar></app-sidebar>
+    <main class="app-content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb">
+              <li class="breadcrumb-item"><a href="#"><b>Bảng điều khiển</b></a></li>
+            </ul>
+            <div id="clock"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+          <div class="row">
+         <div class="col-md-6">
+          <div class="widget-small primary coloured-icon"><i class="icon bx bxs-user-account fa-3x"></i>
+            <div class="info">
+              <h4>Total customers</h4>
+              <p><b>56 customers</b></p>
+              <p class="info-tong">Total number of clients managed.</p>
+            </div>
+          </div>
+        </div>
+            <div class="col-md-6">
+              <div class="widget-small info coloured-icon"><i class="icon bx bxs-data fa-3x"></i>
+                <div class="info">
+                  <h4>Total room</h4>
+                  <p><b>20 room</b></p>
+                  <p class="info-tong">Total number of rooms managed.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="widget-small warning coloured-icon"><i class="icon bx bxs-shopping-bags fa-3x"></i>
+                <div class="info">
+                  <h4>Total room votes</h4>
+                  <p><b>10 room votes</b></p>
+                  <p class="info-tong">Total number of room tickets for the month.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="widget-small danger coloured-icon"><i class="icon bx bxs-error-alt fa-3x"></i>
+                <div class="info">
+                  <h4>Total service</h4>
+                  <p><b>12 service</b></p>
+                  <p class="info-tong">Total service .</p>
+                </div>
+              </div>
+            </div>
+             <div class="col-md-12">
+              <div class="tile">
+                  <h3 class="tile-title">Room ticket status</h3>
+                <div>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Room voucher ID</th>
+                        <th>Customer name</th>
+                        <th>Total money</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>AL3947</td>
+                        <td>Phạm Thị Ngọc</td>
+                        <td>
+                          19.770.000 đ
+                        </td>
+                        <td><span class="badge bg-success">Pay</span></td>
+                      </tr>
+                      <tr>
+                        <td>ER3835</td>
+                        <td>Nguyễn Thị Mỹ Yến</td>
+                        <td>
+                          16.770.000 đ	
+                        </td>
+                        <td><span class="badge bg-warning">Unpaid</span></td>
+                      </tr>
+                      <tr>
+                        <td>MD0837</td>
+                        <td>Triệu Thanh Phú</td>
+                        <td>
+                          9.400.000 đ	
+                        </td>
+                        <td><span class="badge bg-success">Pay</span></td>
+                      </tr>
+                      <tr>
+                        <td>MT9835</td>
+                        <td>Đặng Hoàng Phúc	</td>
+                        <td>
+                          40.650.000 đ	
+                        </td>
+                        <td><span class="badge bg-warning">Unpaid</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+             </div>
+              <div class="col-md-12">
+                  <div class="tile">
+                    <h3 class="tile-title">A new customer</h3>
+                  <div>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Customer name</th>
+                          <th>Date of birth</th>
+                          <th>Phone number</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>#183</td>
+                          <td>Nguyễn Tấn Trung</td>
+                          <td>21/7/1992</td>
+                          <td><span class="tag tag-success">0921387221</span></td>
+                        </tr>
+                        <tr>
+                          <td>#219</td>
+                          <td>Hồ Văn Hiền</td>
+                          <td>30/4/1975</td>
+                          <td><span class="tag tag-warning">0912376352</span></td>
+                        </tr>
+                        <tr>
+                          <td>#627</td>
+                          <td>Nguyễn Văn Tăng</td>
+                          <td>12/3/1999</td>
+                          <td><span class="tag tag-primary">01287326654</span></td>
+                        </tr>
+                        <tr>
+                          <td>#175</td>
+                          <td>Trần Quang Hải</td>
+                          <td>4/12/20000</td>
+                          <td><span class="tag tag-danger">0912376763</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+  
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="tile">
+                <h3 class="tile-title">Input 6 months data</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <canvas class="embed-responsive-item" id="lineChartDemo" width="753" height="423" style="width: 603px; height: 339px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="tile">
+                <h3 class="tile-title">Statistics for 6 months of revenue</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <canvas class="embed-responsive-item" id="barChartDemo" width="753" height="423" style="width: 603px; height: 339px;"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>

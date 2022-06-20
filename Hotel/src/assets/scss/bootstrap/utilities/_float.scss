@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .float#{$infix}-left  { @include float-left; }
+    .float#{$infix}-right { @include float-right; }
+    .float#{$infix}-none  { @include float-none; }
+  }
+}
+=======
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .float#{$infix}-left  { @include float-left; }
+    .float#{$infix}-right { @include float-right; }
+    .float#{$infix}-none  { @include float-none; }
+  }
+}
+>>>>>>> 9419db4272f7cc0e79ab3da12158adcddebc5b1f
