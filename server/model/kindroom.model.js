@@ -5,7 +5,7 @@ const kindroomSchema=new  mongoose.Schema({
     idKindRoom :{type:String},
     nameKindRoom :{type:String},
     cusMax : {type:Number},
-    priceRoom:{type:Decimal128},
+    priceRoom:{type:Number},
     rooms : [
         {type:mongoose.Schema.Types.ObjectId,
         ref:"Room"},

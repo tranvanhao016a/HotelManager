@@ -5,8 +5,8 @@ import { FootherComponent } from 'src/app/components/foother/foother.component';
 import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
 import { HeaderAdminComponent } from 'src/app/components/header-admin/header-admin.component';
 import { NbarComponent } from 'src/app/components/nbar/nbar.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     NbarComponent,
@@ -17,12 +17,16 @@ import { NbarComponent } from 'src/app/components/nbar/nbar.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports:[
     NbarComponent,
     FootherComponent,
     SidebarComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    HttpClientModule ,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: []

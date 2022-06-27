@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Customer } from 'src/app/models/customer.model';
+import { CustomerService } from 'src/app/services/customer.service';
 
 
 @Component({
@@ -9,9 +11,15 @@ import { Router } from '@angular/router';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor(public router: Router) { }
-
+  constructor(public router: Router,public Cus : CustomerService) { }
+  public data : Customer[] = [];
   ngOnInit(): void {
+    this.get('customer/getAllCustomer');
+  }
+
+  public async get(apiPath:string){
+    (await  this.Cus.getCus(apiPath)).subscribe(valua=>(this.data = valua as Customer[]));
+      console.log(this.data)
   }
   navigate(path: string){
     this.router.navigateByUrl(path);

@@ -1,4 +1,10 @@
-#iam{
-    height: 70px;
-    object-fit: fill;
+#imgae{
+    width: auto;
+    height: 60px;
+   
+    background-image: url('/assets/images/hero_1.jpg');
+    // object-fit: fill;
+    // background-image: url('/src/assets/images/hero_2.jpg');
+    // background-attachment: fixed;
+    // style="background-image: url('assets/images/hero_1.jpg');background-attachment: fixed;" data-aos="fade" data-stellar-background-ratio="0.5"
 }

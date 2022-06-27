@@ -41,8 +41,8 @@ const roomController={
     },
     deleteRoom: async(req,res)=>{
         try{
-            var idroom= await Room.findOne({ idRoom : req.params.idRoom });
-            await RoomVoucher.findByIdAndUpdate(idroom,{$set:{room:null}});
+            // var idroom= await Room.findOne({ idRoom : req.params.idRoom });
+            // await RoomVoucher.findByIdAndUpdate(idroom,{$set:{room:null}});
             await Room.findOneAndDelete({ idRoom : req.params.idRoom })
             res.json("Delete success!!");
         }catch(err){

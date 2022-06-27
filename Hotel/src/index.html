@@ -124,5 +124,153 @@
   <script type="text/javascript" src="./assets/doc/js/plugins/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">$('#sampleTable').DataTable();</script>
 
+
+  <script src="../../../../assets/doc/js/jquery-3.2.1.min.js"></script>
+  <script src="../../../../assets/doc/js/popper.min.js"></script>
+  <script src="../../../../assets/doc/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="src/jquery.table2excel.js"></script>
+  <script src="../../../../assets/doc/js/main.js"></script>
+  <script src="../../../../assets/doc/js/plugins/pace.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="../../../../assets/doc/js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="../../../../assets/doc/js/plugins/dataTables.bootstrap.min.js"></script>
+  <!-- <script type="text/javascript">
+    $('#sampleTable').DataTable();
+    //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+  </script>
+  <script>
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+    }
+    jQuery(function () {
+      jQuery(".trash").click(function () {
+        swal({
+          title: "Cảnh báo",
+          text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+          buttons: ["Hủy bỏ", "Đồng ý"],
+        })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Đã xóa thành công.!", {
+
+              });
+            }
+          });
+      });
+    });
+    oTable = $('#sampleTable').dataTable();
+    $('#all').click(function (e) {
+      $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+      e.stopImmediatePropagation();
+    });
+  </script>
+  <script type="text/javascript">
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+      // ]]>
+  </script> -->
+    <script src="./assets/js/main.js"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="./assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/select2/select2.min.js"></script>
+    <script src="./assets/doc/js/tool.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <!-- <script>
+      // Modal popup 
+      var modal = document.getElementById("myModal");
+      var btn = document.getElementById("myBtn");
+      var span = document.getElementsByClassName("close")[0];
+      btn.onclick = function () {
+        modal.style.display = "block";
+      }
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script> -->
 </body>
 </html>

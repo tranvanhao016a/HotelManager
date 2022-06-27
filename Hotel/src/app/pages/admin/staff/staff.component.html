@@ -24,29 +24,6 @@
               <a class="btn btn-add btn-sm" (click)="navigate('/add-staff')" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
                 Create a new staff</a>
             </div>
-            <!-- <div class="col-sm-2">
-              <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
-                  class="fas fa-file-upload"></i> Tải từ file</a>
-            </div>
-            <div class="col-sm-2">
-              <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i
-                  class="fas fa-print"></i> In dữ liệu</a>
-            </div>
-            <div class="col-sm-2">
-              <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i
-                  class="fas fa-copy"></i> Sao chép</a>
-            </div>
-            <div class="col-sm-2">
-              <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất Excel</a>
-            </div>
-            <div class="col-sm-2">
-              <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i
-                  class="fas fa-file-pdf"></i> Xuất PDF</a>
-            </div>
-            <div class="col-sm-2">
-              <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
-                  class="fas fa-trash-alt"></i> Xóa tất cả </a>
-            </div> -->
           </div>
           <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
             id="sampleTable">
@@ -55,26 +32,29 @@
                 <th width="10">
                   <input type="checkbox" id="all" onclick="checkbox()"></th>
                 <th>Staff ID</th>
-                <th width="150">First and last name</th>
-                <th width="300">Address</th>
-                <th>Date of birth</th>
+                <th width="150">Name</th>
+                <!-- <th width="300">Address</th> -->
+                <th>Address</th>
                 <th>Sex</th>
                 <th>SĐT</th>
                 <th>Position</th>
+                <th>Status</th>
                 <th width="100">Feature</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+
+              <tr *ngFor="let item of data">
                 <td width="10">
                 <input type="checkbox" name="check1" value="1"></td>
-                <td>#CD12837</td>
-                <td>Hồ Thị Thanh Ngân</td>
+                <td>{{item.idStaff}}</td>
+                <td>{{item.nameStaff}}</td>
                 <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
-                <td>12/02/1999</td>
-                <td>Nữ</td>
-                <td>0926737168</td>
-                <td>Receptionist</td>
+                <!-- <td>12/02/1999</td> -->
+                <td>{{item.sexStaff}}</td>
+                <td>{{item.phoneStaff}}</td>
+                <td>{{item.position}}</td>
+                <td>{{item.status}}</td>
                 <td class="table-td-center">
                   <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                     onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
@@ -84,7 +64,7 @@
                   </button>
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td width="10">
                   <input type="checkbox" name="check2" value="2"></td>
                 <td>#SX22837</td>
@@ -119,7 +99,7 @@
                   (click)="navigate('/edit-staff')"><i class="fas fa-edit"></i>
                   </button>
                 </td>
-              </tr>
+              </tr> -->
               
             </tbody>
           </table>

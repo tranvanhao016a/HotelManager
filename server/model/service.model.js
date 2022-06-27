@@ -4,7 +4,7 @@ const mongoose=require("mongoose");
 const serviceSchema=new  mongoose.Schema({
     idService :{ type:String},
     nameService :{type:String},
-    priceService : {type:Decimal128},
+    priceService : {type:Number},
     roomVouchers:[
         {
             type:mongoose.Schema.Types.ObjectId,
