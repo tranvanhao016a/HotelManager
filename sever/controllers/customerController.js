@@ -18,15 +18,6 @@ const customerController={
             res.status(500).json(err);
         }
     },
-    addCustomer: async(req,res)=>{
-        try{
-            const newCustomer=new Customer(req.body);
-            const saveCustomer=await newCustomer.save();
-            res.json(saveCustomer);
-        }catch(err){
-            res.status(500).json(err);
-        }
-    },
     updateCustomer: async(req,res)=>{
         try{
             await Customer.findOneAndUpdate(
@@ -35,24 +26,15 @@ const customerController={
                 { $set: {
                     idCard:req.body.idCard,
                     nameCus:req.body.nameCus,
-                    phoneCus:req.body.phoneCus,
-                    sexCus:req.body.sexCus
+                    // phoneCus:req.body.phoneCus,
+                    sexCus:req.body.sexCus,
+                    address:req.body.address
                 },
                 $push: {
                     roomVouchers:req.body.roomVouchers}
                 }
             );
             res.json("Update success!!");
-        }catch(err){
-            res.status(500).json(err);
-        }
-    },
-    deleteCustomer: async(req,res)=>{
-        try{
-            var cus= await Customer.findOne({ phoneCus : req.params.phonecus });
-            // await RoomVoucher.findByIdAndUpdate(cus,{$pull:{customer:cus["_id"]}});
-            // await Customer.findOneAndDelete({ phoneCus : req.params.phonecus })
-            res.json("Delete success!!");
         }catch(err){
             res.status(500).json(err);
         }

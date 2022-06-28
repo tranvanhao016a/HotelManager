@@ -11,7 +11,7 @@ const serviceController={
     },
     getService: async(req,res)=>{
         try{
-            const service=await Service.find({idService:req.params.idservice}).populate("roomVouchers");;
+            const service=await Service.find({nameService:req.params.nameService}).populate("roomVouchers");;
             res.json(service);
         }catch(err){
             res.status(500).json(err);
@@ -19,9 +19,15 @@ const serviceController={
     },
     addService: async(req,res)=>{
         try{
-            const newService=new Service(req.body);
-            const saveService=await newService.save();
-            res.json(saveService);
+            var service =await KindRoom.findOne({nameKindRoom:req.body.nameKindRoom})
+            // console.log(kindroom)
+            if(service==null){
+                const newService=new Service(req.body);
+                const saveService=await newService.save();
+                res.json(saveService);}
+            else{
+                res.json("Service exits");
+            }
         }catch(err){
             res.status(500).json(err);
         }
@@ -31,11 +37,8 @@ const serviceController={
             await Service.findOneAndUpdate(
                 {idService:req.params.idservice},
                 { $set: {
-                    idService:req.body.idService,
                     nameService:req.body.nameService,
                     priceService:req.body.priceService},
-                $push: {
-                    roomVouchers:req.body.roomVouchers}
                 });
             res.json("Update success!!");
         }catch(err){
@@ -45,17 +48,27 @@ const serviceController={
     deleteService: async(req,res)=>{
         try{
             var ser= await Service.findOne({idService:req.params.idservice});
-            console.log(typeof roomvoucher)
-            // await RoomVoucher.findByIdAndUpdate(
-            //     ser,
-            //     {$pulll:{services: ser["_id"]}}
-            //     );
-            // await Service.findOneAndDelete({idService:req.params.idservice})
+            // console.log(ser["_id"]);
+            if(ser!=null){
+            var rV =  await RoomVoucher.find({services:ser["_id"]});
+            // console.log(typeof rV);
+            if(rV!=null){
+                rV.forEach(async(element) => {
+                // console.log(element["idRoomVoucher"]);
+                var roomVoucher=RoomVoucher.findById(element["_id"]);
+                await roomVoucher.updateOne({ $pull: {services:ser["_id"]}})
+                });
+            }
+            await Service.findOneAndDelete({idService:req.params.idservice})
             res.json("Delete success!!");
-        }catch(err){
+            }
+            else{
+                res.json("Service exits!!");
+            }
+            }
+        catch(err){
             res.status(500).json(err);
         }
     }
-
 }
 module.exports=serviceController;
