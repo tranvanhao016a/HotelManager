@@ -29,7 +29,7 @@
                     <th>Room voucherID</th>
                     <th>Staff's name</th>
                     <th>Room ID</th>
-                    <th>SĐT customer</th>
+                    <th>Phone</th>
                     <th> Check-in Date</th>
                     <th> Check-out Date</th>
                     <th> Customers number</th>
@@ -40,17 +40,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor="let item of data">
                     <!-- <td width="10"><input type="checkbox" name="check1" value="1"></td> -->
-                    <td >MD0837</td>
-                    <td>Triệu Thanh Phú</td>
-                    <td>202</td>
-                    <td>012893982173</td>
-                    <td>15/02/2022</td>
-                    <td>18/02/2022 </td>
-                    <td>4</td>
-                    <td>Eating, Spa</td>
-                    <td>2.500.000 đ</td>
+                    <td>{{item.idRoomVoucher}}</td>
+                    <td>{{item.staff.nameStaff}}</td>
+                    <td>{{item.room.idRoom}}</td>
+                    <td>{{item.customer.phoneCus}}</td>
+                    <td>{{item.bookingDate}}</td>
+                    <td>{{item.payDay}}</td>
+                    <td>{{item.numCus}}</td>
+                    <td>
+                      <ul>
+                        <li *ngFor="let service of item.services">
+                          {{service.nameService}}
+                        </li>
+                      </ul>
+                    </td>
+                    <td>{{item.total}}</td>
                     <td><span class="badge bg-success">Pay</span></td>
                     <td class="table-td-center">
                       <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
@@ -61,9 +67,9 @@
                       </button>
                     </td>
                   </tr>
-                  <tr>
+                  <!-- <tr> -->
                     <!-- <td width="10"><input type="checkbox" name="check2" value="2"></td> -->
-                    <td >MĐ8265</td>
+                    <!-- <td >MĐ8265</td>
                     <td>Nguyễn Thị Ngọc Cẩm</td>
                     <td>203</td>
                     <td>001278288282</td>
@@ -80,10 +86,10 @@
                       (click)="navigate('/roomvouchers-detail')" ><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> -->
+                  <!-- <tr> -->
                     <!-- <td width="10"><input type="checkbox" name="check3" value="3"></td> -->
-                    <td >MT9835</td>
+                    <!-- <td >MT9835</td>
                     <td>Đặng Hoàng Phúc</td>
                     <td>201</td>
                     <td>001278288282</td>
@@ -100,7 +106,7 @@
                       (click)="navigate('/roomvouchers-detail')" ><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
                       </button>
                     </td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
             </div>

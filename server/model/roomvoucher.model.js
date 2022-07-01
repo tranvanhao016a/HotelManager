@@ -23,7 +23,7 @@ const roomvoucherSchema=new  mongoose.Schema({
             ref:"Service"
         },
     ] ,
-    total: {type:Decimal128}
+    total: {type:Number}
 })
 
 const RoomVoucher=mongoose.model("RoomVoucher",roomvoucherSchema)

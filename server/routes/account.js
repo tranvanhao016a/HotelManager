@@ -4,7 +4,7 @@ const router =require("express").Router();
 router.get("/getAllAccount",accountController.getAllAccount);
 router.get("/getAccount/:user",accountController.getAccount);
 router.post("/addAccount",accountController.addAccount);
-router.post("/updateAccount/:user",accountController.updateAccount);
+router.put("/updateAccount/:user",accountController.updateAccount);
 router.delete("/deleteAccount/:user",accountController.deleteAccount);
 
 module.exports=router;

@@ -12,9 +12,6 @@ export class RoomComponent implements OnInit {
   constructor(public Room: RoomService, public router: Router) {
 
   }
-
-
-
   public async get(apiPath: string) {
     (await this.Room.getRoom(apiPath)).subscribe(valua => (this.data = valua as Room[], console.log(this.data)));
 

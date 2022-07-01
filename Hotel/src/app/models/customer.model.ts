@@ -3,4 +3,5 @@ export interface Customer {
     nameCus: string,
     phoneCus:string,
     sexCus:string,
+    address:string,
 }

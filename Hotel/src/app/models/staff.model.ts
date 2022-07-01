@@ -4,5 +4,6 @@ export interface Staff{
     position:string,
     phoneStaff:string,
     sexStaff :string,
-    status: string
+    status: string,
+    address:string,
 }

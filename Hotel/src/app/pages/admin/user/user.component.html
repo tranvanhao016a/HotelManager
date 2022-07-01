@@ -34,11 +34,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr  *ngFor="let item of data">
                   <!-- <td width="10"> -->
                   <!-- <input type="checkbox" name="check1" value="1"></td> -->
-                  <td>hao123@gmail.com </td>
-                  <td>hao123 </td>
+                  <td>{{item.user}} </td>
+                  <td>{{item.password}}</td>
                   <td class="table-td-center">
                     <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                       onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
@@ -48,37 +48,8 @@
                     </button>
                   </td>
                 </tr>
-                <tr>
-                    <!-- <td width="10"> -->
-                    <!-- <input type="checkbox" name="check1" value="1"></td> -->
-                    <td>hien123@gmail.com </td>
-                    <td>hien123 </td>
-                    <!-- <td><img src="/img-sanpham/matda.jpg" alt="" width="50px;"></td>-->
-                   
-                    <td class="table-td-center">
-                      <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                      </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                      (click)="navigate('/edit-user')"><i class="fas fa-edit"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <!-- <td width="10"> -->
-                    <!-- <input type="checkbox" name="check1" value="1"></td> -->
-                    <td>huan123@gmail.com </td>
-                    <td>huan123</td>
-                    <!-- <td><img src="/img-sanpham/ghethera.jpg" alt="" width="50px;"></td>-->
-                    <td class="table-td-center">
-                      <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                      </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                      (click)="navigate('/edit-user')"><i class="fas fa-edit"></i>
-                      </button>
-                    </td>
-                  </tr>
+               
+                 
               </tbody>
             </table>
           </div>
