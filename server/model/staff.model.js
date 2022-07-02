@@ -12,11 +12,13 @@ const staffSchema=new  mongoose.Schema({
     position:{type:String},
     phoneStaff:{type:String},
     sexStaff:{type:String},
+    status:{type:String},
+    address:{type:String},
     email:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Account"
         },
-    roomVoucher :[{
+    roomVouchers :[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"RoomVoucher"
     },]

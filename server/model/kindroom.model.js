@@ -6,6 +6,7 @@ const kindroomSchema=new  mongoose.Schema({
     nameKindRoom :{type:String},
     cusMax : {type:Number},
     priceRoom:{type:Number},
+    image:{type:String},
     rooms : [
         {type:mongoose.Schema.Types.ObjectId,
         ref:"Room"},

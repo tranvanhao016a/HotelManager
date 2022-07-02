@@ -17,6 +17,8 @@ const roomvoucherSchema=new  mongoose.Schema({
     bookingDate : {type:Date} ,
     payDay : {type:Date} ,
     numCus : {type:Number}  ,
+    adults:{type:Number},
+    children:{type:Number},
     services: [
         { 
             type:mongoose.Schema.Types.ObjectId,
