@@ -20,7 +20,8 @@ export class RoomComponent implements OnInit {
     this.get('room/getAllRoom');
   }
   navigate(path: string, id: string) {
-    this.router.navigate([path, { id: id }]);
+    // this.router.navigate([path, { id: id }]);
+    this.router.navigate([path, id ]);
   }
   public async deleteRoom(apiPath: string) {
     (await this.Room.deteleRoom(apiPath)).subscribe(()=>{

@@ -48,7 +48,7 @@ const roomController={
     },
     updateRoom: async(req,res)=>{
         try{
-            var kindrom= await KindRoom.findOne({ nameKindRoom : req.body.nameKindRoom });
+            var kindrom= await KindRoom.findOne({ nameKindRoom : req.body.kindRoom });
             // console.log(kindrom)
             if(kindrom!=null){
                 await Room.findOneAndUpdate(

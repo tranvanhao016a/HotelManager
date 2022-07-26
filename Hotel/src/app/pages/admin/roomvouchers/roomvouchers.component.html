@@ -50,8 +50,8 @@
                     <td>{{item.payDay}}</td>
                     <td>{{item.numCus}}</td>
                     <td>
-                      <ul>
-                        <li *ngFor="let service of item.services">
+                      <ul style="list-style-type: none;">
+                        <li *ngFor="let service of item.services" >
                           {{service.nameService}}
                         </li>
                       </ul>
