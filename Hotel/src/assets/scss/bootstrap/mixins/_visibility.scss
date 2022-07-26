@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // stylelint-disable declaration-no-important
 
 // Visibility
@@ -6,12 +5,3 @@
 @mixin invisible($visibility) {
   visibility: $visibility !important;
 }
-=======
-// stylelint-disable declaration-no-important
-
-// Visibility
-
-@mixin invisible($visibility) {
-  visibility: $visibility !important;
-}
->>>>>>> 9419db4272f7cc0e79ab3da12158adcddebc5b1f

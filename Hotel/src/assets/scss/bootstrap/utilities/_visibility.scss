@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //
 // Visibility utilities
 //
@@ -10,16 +9,3 @@
 .invisible {
   @include invisible(hidden);
 }
-=======
-//
-// Visibility utilities
-//
-
-.visible {
-  @include invisible(visible);
-}
-
-.invisible {
-  @include invisible(hidden);
-}
->>>>>>> 9419db4272f7cc0e79ab3da12158adcddebc5b1f
