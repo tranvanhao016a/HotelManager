@@ -39,21 +39,21 @@
                           <input type="checkbox" id="all" onclick="checkbox()">
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Mã phòng: activate to sort column ascending" style="width: 107px;">Room ID</th>
+                          aria-label="Mã phòng: activate to sort column ascending" style="width: 60px;">Room ID</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Ảnh: activate to sort column ascending" style="width: 126px;">Image</th>
+                          aria-label="Ảnh: activate to sort column ascending" style="width: 100px;">Image</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Số khách tối đa: activate to sort column ascending" style="width: 73px;">Maximum
+                          aria-label="Số khách tối đa: activate to sort column ascending" style="width: 150px;">Maximum
                           number of guests</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Tình trạng: activate to sort column ascending" style="width: 83px;">Status</th>
+                          aria-label="Tình trạng: activate to sort column ascending" style="width: 60px;">Status</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Giá tiền: activate to sort column ascending" style="width: 104px;">Price</th>
+                          aria-label="Giá tiền: activate to sort column ascending" style="width: 60px;">Price</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Loại phòng: activate to sort column ascending" style="width: 134px;">Kind of room
+                          aria-label="Loại phòng: activate to sort column ascending" style="width: 100px;">Kind of room
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Chức năng: activate to sort column ascending" style="width: 90px;">Feature</th>
+                          aria-label="Chức năng: activate to sort column ascending" style="width: 60px;">Feature</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -70,7 +70,7 @@
                             (click)="deleteRoom(item.idRoom)"><i class="fas fa-trash-alt"></i>
                           </button>
                           <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                          (click)="navigate('/edit-room',item.idRoom)" ><i class="fas fa-edit"></i></button>
+                          (click)="navigate('/edit-room',item.idRoom)" style="margin-left: 10%;"><i class="fas fa-edit"></i></button>
                         </td>
                       </tr>
                       <!-- <tr role="row" class="even">
@@ -198,5 +198,5 @@
       </div>
     </div>
   </div> -->
- 
+
 </body>
