@@ -1,4 +1,4 @@
-<body class="app sidebar-mini rtl  pace-done">
+<body class="app sidebar-mini rtl  pace-done" style="font-size: 20px">
   <!-- <div class="pace  pace-inactive">
     <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
       <div class="pace-progress-inner"></div>
@@ -11,7 +11,7 @@
 <main class="app-content">
   <div class="app-title">
     <ul class="app-breadcrumb breadcrumb side">
-      <li class="breadcrumb-item active" ><a href=""><b >List of staff</b></a></li>
+      <li class="breadcrumb-item active" style="font-size: 20px;"><a href=""><b >List of staff</b></a></li>
     </ul>
     <div id="clock"></div>
   </div>
@@ -31,15 +31,15 @@
               <tr>
                 <th width="10">
                   <input type="checkbox" id="all" onclick="checkbox()"></th>
-                <th>Staff ID</th>
-                <th width="150">Name</th>
+                <th style="width: 100px;">Staff ID</th>
+                <th width="200">Name</th>
                 <!-- <th width="300">Address</th> -->
                 <th>Address</th>
                 <th>Sex</th>
                 <th>Phone</th>
                 <th>Position</th>
                 <th>Status</th>
-                <th >Feature</th>
+                <th width="150">Feature</th>
               </tr>
             </thead>
             <tbody>
@@ -57,10 +57,10 @@
                 <td>{{item.status}}</td>
                 <td >
                   <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                    onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                    onclick="myFunction(this)" style="font-size: 20px"><i class="fas fa-trash-alt"></i>
                   </button>
                   <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                  (click)="navigate('/edit-staff')" style="margin-left: 10%;"><i class="fas fa-edit"></i>
+                  (click)="navigate('/edit-staff')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
                   </button>
                 </td>
               </tr>

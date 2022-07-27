@@ -1,4 +1,4 @@
-<body onload="time()" class="app sidebar-mini rtl  pace-done">
+<body onload="time()" class="app sidebar-mini rtl  pace-done" style="font-size: 20px">
   <!-- <div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
     <div class="pace-progress-inner"></div>
   </div>
@@ -58,10 +58,13 @@
                         <th >
                           <input type="checkbox" id="all" onclick="checkbox()">
                         </th>
-                        <th >CMND</th>
-                        <th >Customer
+                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="CMND: activate to sort column ascending" style="width: 50px;">CMND</th>
+                        <th width="150" class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Họ và tên: activate to sort column ascending" style="width: 150px;">Customer
                           name</th>
-                        <th >Address</th>
+                        <th width="300" class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Địa chỉ: activate to sort column ascending" style="width: 150px;">Address</th>
                         <!-- <th class="sorting_asc" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
                           aria-label="Ngày sinh: activate to sort column descending" aria-sort="ascending"
                           style="width: 74.4375px;">Date of birth</th> -->
@@ -69,7 +72,8 @@
                         <th >SĐT</th>
                         <th >Check in
                         </th>
-                        <th >Feature
+                        <th width="100" class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
+                          aria-label="Tính năng: activate to sort column ascending" style="width: 100px;">Feature
                         </th>
                       </tr>
                     </thead>
@@ -82,12 +86,12 @@
                         <!-- <td class="sorting_1">02/06/1998</td> -->
                         <td>{{item.sexCus}}</td>
                         <td>{{item.phoneCus}}</td>
-                        <td><span class="badge bg-warning">Haven't checked in</span></td>
+                        <td><span class="badge bg-warning" style="font-size: 20px;">Haven't checked in</span></td>
                         <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                            onclick="myFunction()"><i class="fas fa-trash-alt"></i>
+                            onclick="myFunction()" style="font-size: 20px"><i class="fas fa-trash-alt"></i>
                           </button>
                           <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                          (click)="navigate('/edit-customer')" style="margin-left: 10%;"><i class="fas fa-edit"></i>
+                          (click)="navigate('/edit-customer')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
                           </button>
                         </td>
                       </tr>

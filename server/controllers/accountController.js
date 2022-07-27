@@ -1,5 +1,5 @@
-const Account= require("../model/account.model");
-const Staff= require("../model/staff.model");
+const Account= require("../models/account.model");
+const bcrypt=require("bcrypt");
 
 const accountController={
     getAllAccount: async(req,res)=>{
@@ -12,7 +12,7 @@ const accountController={
     },
     getAccount: async(req,res)=>{
         try{
-            const account=await Account.findOne({ user : req.params.user }).populate("staff");
+            const account=await Account.findOne({ username : req.params.username }).populate("staff");
             res.json(account);
         }catch(err){
             res.status(500).json(err);
@@ -20,11 +20,18 @@ const accountController={
     },
     updateAccount: async(req,res)=>{
         try{
+            const salt =await bcrypt.genSalt(10);
+            const hashed =await bcrypt.hash(req.body.password, salt);
+
             await Account.findOneAndUpdate(
-                { user : req.params.user },
-                { $set: req.body}
+                { username : req.params.username },
+                { $set: {
+                    username : req.body.username,
+                    email: req.body.email,
+                    password:hashed
+                }}
             );
-            res.json("Update success!!");
+            res.send({message:"Upload success!"});
         }catch(err){
             res.status(500).json(err);
         }

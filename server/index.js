@@ -12,6 +12,7 @@ const customerRouter= require("./routes/customer")
 const kindroomRouter= require("./routes/kindroom")
 const roomRouter= require("./routes/room")
 const roomvoucherRouter= require("./routes/roomvoucher")
+const authRouter= require("./routes/auth")
 // const bookingRouter= require("./routes/booking")
 
 //tao file .env 
@@ -32,7 +33,13 @@ app.use("/customer",customerRouter);
 app.use("/kindroom",kindroomRouter);
 app.use("/room",roomRouter);
 app.use("/roomvoucher",roomvoucherRouter);
+app.use("/auth",authRouter);
 // app.use("/booking",bookingRouter);
+
+// .env them
+// JWT_ACCESS_KEY="12345"
+// JWT_REFRESH_KEY="6789" 
+
 
 app.listen(3000,()=>{
     console.log("Server is running...");

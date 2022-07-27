@@ -1,6 +1,6 @@
-const Room= require("../model/room.model");
-const RoomVoucher=require("../model/kindroom.model");
-const KindRoom = require("../model/kindroom.model");
+const Room= require("../models/room.model");
+const RoomVoucher=require("../models/kindroom.model");
+const KindRoom = require("../models/kindroom.model");
 
 const roomController={
     getAllRoom: async(req,res)=>{
@@ -14,7 +14,7 @@ const roomController={
     getRoom: async(req,res)=>{
         try{
             // const room=await Room.find({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
-            const room=await Room.find({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
+            const room=await Room.findOne({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
             res.json(room);
         }catch(err){
             res.status(500).json(err);

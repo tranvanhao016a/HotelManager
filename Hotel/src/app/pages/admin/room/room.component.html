@@ -1,11 +1,11 @@
-<body class="app sidebar-mini rtl  pace-done">
+<body class="app sidebar-mini rtl  pace-done" style="font-size: 20px;">
   <app-header-admin></app-header-admin>
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
   <app-sidebar></app-sidebar>
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Room list</b></a></li>
+        <li class="breadcrumb-item active" style="font-size: 20px;"><a href="#"><b>Room list</b></a></li>
       </ul>
       <div id="clock"></div>
     </div>
@@ -43,7 +43,7 @@
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
                           aria-label="Ảnh: activate to sort column ascending" style="width: 100px;">Image</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Số khách tối đa: activate to sort column ascending" style="width: 150px;">Maximum
+                          aria-label="Số khách tối đa: activate to sort column ascending" style="width: 200px;">Maximum
                           number of guests</th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
                           aria-label="Tình trạng: activate to sort column ascending" style="width: 60px;">Status</th>
@@ -63,14 +63,14 @@
                         <td>{{item.idRoom}}</td>
                         <td><img src="../../../../assets/img-phong/phong-standard.jpg" alt="" width="100px;"></td>
                         <td>4</td>
-                        <td><span class="badge bg-danger">{{item.status}}</span></td>
+                        <td><span class="badge bg-danger" style="font-size: 20px;">{{item.status}}</span></td>
                         <td *ngIf="item.kindRoom">{{item.kindRoom.priceRoom}}</td>
                         <td *ngIf="item.kindRoom">{{item.kindRoom.nameKindRoom}}</td>
                         <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                            (click)="deleteRoom(item.idRoom)"><i class="fas fa-trash-alt"></i>
+                            (click)="deleteRoom(item.idRoom)" style="font-size: 20px;"><i class="fas fa-trash-alt"></i>
                           </button>
                           <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                          (click)="navigate('/edit-room',item.idRoom)" style="margin-left: 10%;"><i class="fas fa-edit"></i></button>
+                          (click)="navigate('/edit-room',item.idRoom)" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i></button>
                         </td>
                       </tr>
                       <!-- <tr role="row" class="even">
