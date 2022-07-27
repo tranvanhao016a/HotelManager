@@ -1,4 +1,4 @@
-<body class="app sidebar-mini rtl  pace-done">
+<body class="app sidebar-mini rtl  pace-done" style="font-size: 20px;">
     <!-- <div class="pace  pace-inactive">
       <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
         <div class="pace-progress-inner"></div>
@@ -11,7 +11,7 @@
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Service List</b></a></li>
+        <li class="breadcrumb-item active" style="font-size: 20px;"><a href="#"><b>Service List</b></a></li>
       </ul>
       <div id="clock"></div>
     </div>
@@ -36,7 +36,7 @@
                   <th>Service name</th>
                   <!-- <th>Unit</th> -->
                   <th>Service prices</th>
-                  <th width="100">Feature</th>
+                  <th width="150">Feature</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,10 +50,10 @@
                   <td >{{item.priceService}} </td>
                   <td class="table-td-center">
                     <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                      onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                      onclick="myFunction(this)" style="font-size: 20px;"><i class="fas fa-trash-alt"></i>
                     </button>
                     <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                    (click)="navigate('/edit-service')" style="margin-left: 10%;"><i class="fas fa-edit"></i>
+                    (click)="navigate('/edit-service')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
                     </button>
                   </td>
                 </tr>
