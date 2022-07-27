@@ -13,25 +13,25 @@ export class AccountService {
     return result;
    }
 
-   public async editAccount(user :string,password:string){
-    return this.http.put(environment.endpoint+'account/updateAccount/'+user,{
-       user :user,
+   public async editAccount(email :string,password:string){
+    return this.http.put(environment.endpoint+'account/updateAccount/'+email,{
+      email :email,
         password :password, 
       },
     
     );
    }
 
-   public async addAccount(user :string,password:string){
-        return this.http.put(environment.endpoint+'account/addAccount/'+user,{
-           user :user,
+   public async addAccount(email :string,password:string){
+        return this.http.put(environment.endpoint+'account/addAccount/'+email,{
+          email :email,
             password :password, 
           },
     );
   }
-   public async deteleRAccount(user:string)
+   public async deteleRAccount(email:string)
    {
-    return this.http.delete(environment.endpoint+'account/deleteAccount/'+user)
+    return this.http.delete(environment.endpoint+'account/deleteAccount/'+email)
    }
    
 }

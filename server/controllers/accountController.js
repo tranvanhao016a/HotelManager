@@ -12,7 +12,7 @@ const accountController={
     },
     getAccount: async(req,res)=>{
         try{
-            const account=await Account.findOne({ user : req.params.user }).populate("staff");
+            const account=await Account.findOne({ email : req.params.email }).populate("staff");
             res.json(account);
         }catch(err){
             res.status(500).json(err);
@@ -21,7 +21,7 @@ const accountController={
     updateAccount: async(req,res)=>{
         try{
             await Account.findOneAndUpdate(
-                { user : req.params.user },
+                { email : req.params.email },
                 { $set: req.body}
             );
             res.json("Update success!!");

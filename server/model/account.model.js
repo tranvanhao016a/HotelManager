@@ -1,7 +1,7 @@
 const mongoose=require("mongoose");
 
 const accountSchema=new  mongoose.Schema({
-    user :{ type:String},
+    email:{ type:String},
     password :{type:String},
     staff:{
         type:mongoose.Schema.Types.ObjectId,
