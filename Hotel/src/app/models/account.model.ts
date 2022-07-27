@@ -1,4 +1,5 @@
 export interface Account{
-    user:string,
+    username:string,
+    email:string,
     password:string,
 }

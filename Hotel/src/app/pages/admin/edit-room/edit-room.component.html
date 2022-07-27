@@ -2,7 +2,7 @@
     <app-header-admin></app-header-admin>
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <app-sidebar></app-sidebar>
-  
+
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
@@ -12,9 +12,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-  
+
         <div class="tile">
-  
+
           <h3 class="tile-title">Edit Room</h3>
           <div class="tile-body">
             <form class="row" [formGroup]="editform" (submit)="update()">
@@ -46,10 +46,10 @@
                 <label class="control-label">Kind of room</label>
                 <select class="form-control" id="exampleSelect1" formControlName="nameKindRoom">
                   <option *ngFor="let item of data" [value]="item">{{item.nameKindRoom}}</option>
-                
+
                 </select>
               </div> -->
-            
+
           <button class="btn btn-save" type="submit">Save</button>
           <a class="btn btn-cancel" href="/room">Cancel</a>
           </form>
@@ -58,7 +58,7 @@
     </div>
     </div>
   </main>
-  
-  
+
+
   </body>
 

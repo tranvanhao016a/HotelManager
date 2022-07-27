@@ -41,7 +41,13 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+.mesUploat{
+  width: 100%;
+  text-align: center;
+  font-size:xx-large;
+  /* height: 100%; */
+  /* background-color: #4bac4d; */
+}
 html {
   font-family: var(--font-family-sarabun);
   line-height: 1.15;

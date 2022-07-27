@@ -2,7 +2,7 @@
     <app-header-admin></app-header-admin>
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <app-sidebar></app-sidebar>
-  
+
   <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb">
@@ -12,24 +12,23 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-  
         <div class="tile">
-  
           <h3 class="tile-title">Edit User</h3>
           <div class="tile-body">
-            <form class="row">
+            <form class="row" [formGroup]="editform" (submit)="update()">
+              <div class="form-group col-md-12" *ngIf="this.check">
+                <h3 class="mesUploat" >{{ getData() }}</h3>
+              </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Email</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" formControlName="email" value="{{this.data.email}}">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Password</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="text"  formControlName="password" value="{{this.data.password}}">
               </div>
-             
-            
-          <button class="btn btn-save" type="button">Save</button>
-          <a class="btn btn-cancel" href="/user">Cancel</a>
+          <button class="btn btn-save" type="submit">Save</button>
+          <a class="btn btn-cancel"  (click)="removeData()" href="/user">Cancel</a>
           </form>
         </div>
       </div>
