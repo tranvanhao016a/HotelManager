@@ -17,18 +17,21 @@
 
           <h3 class="tile-title">Edit User</h3>
           <div class="tile-body">
-            <form class="row">
+            <form class="row" [formGroup]="editform" (submit)="update()">
+              <div class="form-group col-md-12" *ngIf="this.check">
+                <h3 class="mesUploat" >{{ getData() }}</h3>
+              </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Email</label>
-                <input class="form-control" type="text">
+                <input class="form-control" type="text" formControlName="email" value="{{this.data.email}}">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Password</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="text"  formControlName="password" value="{{this.data.password}}">
               </div>
 
-          <button class="btn btn-save" type="button" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
-          <a class="btn btn-cancel" href="/user" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Cancel</a>
+          <button class="btn btn-save" type="submit" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
+          <a class="btn btn-cancel" href="/user" (click)="removeData()"  style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Cancel</a>
           </form>
         </div>
       </div>

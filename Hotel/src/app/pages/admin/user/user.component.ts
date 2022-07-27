@@ -13,13 +13,13 @@ export class UserComponent implements OnInit {
   constructor(public router: Router, public User: AccountService) { }
 
   ngOnInit(): void {
-    this.get('account/getAllAccount');
+    this.get();
   }
-  navigate(path: string){
-    this.router.navigateByUrl(path);
+  public async get(){
+    (await  this.User.getAllAccounts()).subscribe(valua=>(this.data = valua as Account[],console.log(this.data)));
+
   }
-  public async get(apiPath:string){
-    (await  this.User.getAccount(apiPath)).subscribe(valua=>(this.data = valua as Account[]));
-      console.log(this.data)
+  navigate(path: string, username: string) {
+    this.router.navigate([path, username ]);
   }
 }

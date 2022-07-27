@@ -13,9 +13,9 @@ export class EditRoomComponent implements OnInit {
  public data : KindRoom[]= [];
  public editform!: FormGroup;
   constructor(public Room: RoomService,
-     public Kind : KindroomService,
+      public Kind : KindroomService,
       public router : Router,
-       public route: ActivatedRoute,
+      public route: ActivatedRoute,
       public formBuider : FormBuilder) {
         this.editform = this.formBuider.group({
           status:'',

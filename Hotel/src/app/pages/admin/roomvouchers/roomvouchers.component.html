@@ -17,7 +17,7 @@
             <div class="tile-body">
                 <div class="row element-button">
                 <div class="col-sm-2">
-                    <a class="btn btn-add btn-sm" style="font-size:13px ;" (click)="navigate('/add-roomvouchers')" title="Thêm"><i class="fas fa-plus"></i>
+                    <a class="btn btn-add btn-sm" style="font-size:13px ;" (click)="navigateAdd('/add-roomvouchers')" title="Thêm"><i class="fas fa-plus"></i>
                       Add new RoomVouchers</a>
                   </div>
                 </div>
@@ -46,12 +46,12 @@
                     <td>{{item.staff.nameStaff}}</td>
                     <td>{{item.room.idRoom}}</td>
                     <td>{{item.customer.phoneCus}}</td>
-                    <td>{{item.bookingDate}}</td>
-                    <td>{{item.payDay}}</td>
+                    <td>{{item.bookingDate| date: 'dd/MM/yyyy'}}</td>
+                    <td>{{item.payDay| date: 'dd/MM/yyyy'}}</td>
                     <td>{{item.numCus}}</td>
                     <td>
-                      <ul>
-                        <li *ngFor="let service of item.services">
+                      <ul style="list-style-type: none;">
+                        <li *ngFor="let service of item.services" >
                           {{service.nameService}}
                         </li>
                       </ul>
@@ -63,50 +63,11 @@
                         onclick="myFunction()" style="font-size: 20px;"><i class="fas fa-trash-alt"></i>
                       </button>
                       <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                      (click)="navigate('/roomvouchers-detail')" style="margin-left: 2%;font-size: 20px;"><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
+                      (click)="navigateEdit('/roomvouchers-detail',item.idRoomVoucher)" style="margin-left: 2%;font-size: 20px;"><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
                       </button>
                     </td>
                   </tr>
-                  <!-- <tr> -->
-                    <!-- <td width="10"><input type="checkbox" name="check2" value="2"></td> -->
-                    <!-- <td >MĐ8265</td>
-                    <td>Nguyễn Thị Ngọc Cẩm</td>
-                    <td>203</td>
-                    <td>001278288282</td>
-                    <td>25/07/2022</td>
-                    <td>30/07/2022 </td>
-                    <td>2</td>
-                    <td>Pool, Spa</td>
-                    <td>3.800.000 đ</td>
-                    <td><span class="badge bg-success">Pay</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
-                      </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                      (click)="navigate('/roomvouchers-detail')" ><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
-                      </button>
-                    </td>
-                  </tr> -->
-                  <!-- <tr> -->
-                    <!-- <td width="10"><input type="checkbox" name="check3" value="3"></td> -->
-                    <!-- <td >MT9835</td>
-                    <td>Đặng Hoàng Phúc</td>
-                    <td>201</td>
-                    <td>001278288282</td>
-                    <td>01/01/2022</td>
-                    <td>01/01/2022 </td>
-                    <td>3 </td>
-                    <td>Pool, Spa</td>
-                    <td>4.650.000 đ</td>
-                    <td><span class="badge bg-warning">Unpaid</span></td>
-                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="myFunction()"><i
-                          class="fas fa-trash-alt"></i>
-                      </button>
-                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                      (click)="navigate('/roomvouchers-detail')" ><span class="iconify" data-icon="bx:detail" style="font-size:large;"></span>
-                      </button>
-                    </td>
-                  </tr> -->
+
                 </tbody>
               </table>
             </div>

@@ -1,5 +1,5 @@
-const Customer= require("../model/customer.model");
-const RoomVoucher=require("../model/roomvoucher.model")
+const Customer= require("../models/customer.model");
+const RoomVoucher=require("../models/roomvoucher.model")
 
 const customerController={
     getAllCustomer: async(req,res)=>{
@@ -12,7 +12,7 @@ const customerController={
     },
     getCustomer: async(req,res)=>{
         try{
-            const customer=await Customer.find({phoneCus:req.params.phonecus}).populate("roomVouchers");
+            const customer=await Customer.findOne({phoneCus:req.params.phonecus}).populate("roomVouchers");
             res.json(customer);
         }catch(err){
             res.status(500).json(err);

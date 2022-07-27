@@ -1,5 +1,5 @@
-const KindRoom= require("../model/kindroom.model");
-const Room=require("../model/room.model");
+const KindRoom= require("../models/kindroom.model");
+const Room=require("../models/room.model");
 
 const kindroomController={
     getAllKindRoom: async(req,res)=>{

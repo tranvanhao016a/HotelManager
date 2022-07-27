@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class RoomService {
 
   constructor(public http: HttpClient) { }
-  public async getRoom(apiPath:string):Promise<Observable<any>> {
-    let result = this.http.get(environment.endpoint +apiPath);
+  public async getAllRoom():Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'room/getAllRoom');
     return result;
    }
 
@@ -18,7 +18,7 @@ export class RoomService {
        idRoom :idRoom,
         kindRoom : kindRoom, status : status,roomVouche:roomVoucher
       },
-    
+
     );
    }
 
@@ -27,12 +27,12 @@ export class RoomService {
        idRoom :idRoom,
         kindRoom : kindRoom, status : status,roomVouche:roomVoucher
       },
-    
+
     );
   }
    public async deteleRoom(idRoom:string)
    {
     return this.http.delete(environment.endpoint+'room/deleteRoom/'+idRoom)
    }
-   
+
 }

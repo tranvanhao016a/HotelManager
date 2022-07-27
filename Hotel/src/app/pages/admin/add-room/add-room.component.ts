@@ -29,11 +29,10 @@ export class AddRoomComponent implements OnInit {
   ngOnInit(): void {
     // this.id = this.route.snapshot.paramMap.get('id')!;
     // console.log( this.route.snapshot.paramMap.get('id'))
-    // this.get('kindroom/getAllKindRoom');
+    this.getKindRoom('kindroom/getAllKindRoom');
   }
-  public async get(apiPath:string){
-    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[]));
-      console.log(this.data)
+  public async getKindRoom(apiPath:string){
+    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[], console.log(this.data) ));
   }
   public async add() {
     console.log(this.addform.value);
