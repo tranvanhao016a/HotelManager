@@ -27,6 +27,7 @@ export class AccountService {
 
     );
    }
+   
 
   //  public async addAccount(user :string,password:string){
   //       return this.http.put(environment.endpoint+'account/addAccount/'+user,{

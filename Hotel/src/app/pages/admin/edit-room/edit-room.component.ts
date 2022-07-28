@@ -4,16 +4,18 @@ import { RoomService } from 'src/app/services/room.service';
 import {KindRoom} from 'src/app/models/kindroom.model'
 import {KindroomService} from 'src/app/services/kindroom.service'
 import { ActivatedRoute, Router } from '@angular/router';
+import { Room } from 'src/app/models/room.model';
 @Component({
   selector: 'app-edit-room',
   templateUrl: './edit-room.component.html',
   styleUrls: ['./edit-room.component.scss']
 })
 export class EditRoomComponent implements OnInit {
- public data : KindRoom[]= [];
+ public data : any;
+ 
  public editform!: FormGroup;
   constructor(public Room: RoomService,
-      public Kind : KindroomService,
+      
       public router : Router,
       public route: ActivatedRoute,
       public formBuider : FormBuilder) {
@@ -22,23 +24,23 @@ export class EditRoomComponent implements OnInit {
           // kindRoom:'',
         })
         }
-    id : string ='';
+        idRoom : string ='';
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id')!;
-    console.log( this.route.snapshot.paramMap.get('id'))
-    this.get('kindroom/getAllKindRoom');
+    this.idRoom = this.route.snapshot.paramMap.get('idRoom')!;
+    console.log( this.route.snapshot.paramMap.get('idRoom'))
+    this.get(this.idRoom);
   }
-  public async get(apiPath:string){
-    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[]));
-      console.log(this.data)
+  public async get(idRoom:string){
+    console.log(this.idRoom);
+    (await  this.Room.getRoom(idRoom)).subscribe(valua=>(this.data = valua,console.log(valua)));
+      
   }
   public async update() {
     console.log(this.editform.value);
    (await this.Room.editRoom(
-
-      this.id,
-      this.editform.value.kindRoom
-      ,this.editform.value.status,
+      this.idRoom,
+      this.editform.value.kindRoom,
+      this.editform.value.status,
       
       
    )).subscribe((value: any) => {

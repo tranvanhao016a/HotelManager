@@ -19,9 +19,9 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     this.get();
   }
-  navigate(path: string, id: string) {
+  navigate(path: string, idRoom: string) {
     // this.router.navigate([path, { id: id }]);
-    this.router.navigate([path, id ]);
+    this.router.navigate([path, idRoom ]);
   }
   public async deleteRoom(apiPath: string) {
     (await this.Room.deteleRoom(apiPath)).subscribe(()=>{

@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'add-roomvouchers', loadChildren: () => import('./pages/admin/add-roomvouchers/add-roomvouchers.module').then(m => m.AddRoomvouchersModule) },
   { path: 'add-room', loadChildren: () => import('./pages/admin/add-room/add-room.module').then(m => m.AddRoomModule) },
   { path: 'edit-room', loadChildren: () => import('./pages/admin/edit-room/edit-room.module').then(m => m.EditRoomModule) },
-  { path: 'edit-room/:id', loadChildren: () => import('./pages/admin/edit-room/edit-room.module').then(m => m.EditRoomModule) },
+  { path: 'edit-room/:idRoom', loadChildren: () => import('./pages/admin/edit-room/edit-room.module').then(m => m.EditRoomModule) },
   { path: 'kindroom', loadChildren: () => import('./pages/admin/kindroom/kindroom.module').then(m => m.KindroomModule) },
   { path: 'add-kindroom', loadChildren: () => import('./pages/admin/add-kindroom/add-kindroom.module').then(m => m.AddKindroomModule) },
   { path: 'edit-kindroom', loadChildren: () => import('./pages/admin/edit-kindroom/edit-kindroom.module').then(m => m.EditKindroomModule) }

@@ -20,9 +20,9 @@ public editform!: FormGroup;
     public route: ActivatedRoute,
     public formBuider: FormBuilder) {
       this.editform = this.formBuider.group({
-        idService:'',
-  nameService:'',
-  priceService: 0,
+        // idService:'',
+        nameService:'',
+        priceService: 0,
       })
      }
 idService: string ='';
@@ -35,9 +35,9 @@ public async get(idService:string){
     (await this.Service.getService(idService)).subscribe(valua=>(this.data=valua ,
       // console.log(this.data),
       this.editform.patchValue({
-    nameStaff: this.data.idService,
-    position: this.data.nameService,
-    phoneStaff: this.data.priceService,
+        // idService: this.data.idService,
+        nameService: this.data.nameService,
+        priceService: this.data.priceService,
     
       })
        )); 
@@ -48,8 +48,6 @@ public async get(idService:string){
       this.idService,
       this.editform.value.nameService,
       this.editform.value.priceService,
-    
-      
    )).subscribe((value: any) => {
       alert(value['message']);
     });
