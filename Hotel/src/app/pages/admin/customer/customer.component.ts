@@ -18,11 +18,12 @@ export class CustomerComponent implements OnInit {
   }
 
   public async get(apiPath:string){
-    (await  this.Cus.getCus(apiPath)).subscribe(valua=>(this.data = valua as Customer[]));
+    (await  this.Cus.getAllCus(apiPath)).subscribe(valua=>(this.data = valua as Customer[]));
       console.log(this.data)
   }
-  navigate(path: string){
-    this.router.navigateByUrl(path);
+  navigate(path: string, phoneCus: string) {
+    this.router.navigate([path, { phoneCus: phoneCus }]);
   }
+ 
  
 }

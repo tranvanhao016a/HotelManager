@@ -22,18 +22,17 @@ export class AddRoomComponent implements OnInit {
         this.addform = this.formBuider.group({
           idRoom:'',
           status:'',
-          // kindRoom:'',
+          kindRoom:'',
         })
         }
     // id : string ='';
   ngOnInit(): void {
     // this.id = this.route.snapshot.paramMap.get('id')!;
     // console.log( this.route.snapshot.paramMap.get('id'))
-    // this.get('kindroom/getAllKindRoom');
+    this.getKindRoom('kindroom/getAllKindRoom');
   }
-  public async get(apiPath:string){
-    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[]));
-      console.log(this.data)
+  public async getKindRoom(apiPath:string){
+    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[], console.log(this.data) ));
   }
   public async add() {
     console.log(this.addform.value);
@@ -41,8 +40,8 @@ export class AddRoomComponent implements OnInit {
 
       this.addform.value.idRoom,
       this.addform.value.kindRoom
-      ,this.addform.value.status,
-      this.addform.value.roomVoucher
+      ,this.addform.value.status
+      // this.addform.value.roomVoucher
       
    )).subscribe((value: any) => {
       alert(value['message']);

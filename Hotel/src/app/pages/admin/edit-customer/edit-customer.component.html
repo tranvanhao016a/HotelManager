@@ -17,7 +17,7 @@
 
           <h3 class="tile-title">Edit Customer</h3>
           <div class="tile-body">
-            <form class="row">
+            <!-- <form class="row">
               <div class="form-group col-md-4">
                 <label class="control-label">Customer ID</label>
                 <input class="form-control" type="text">
@@ -90,7 +90,39 @@
 
               </div> -->
           <!-- </div> -->
-          <button class="btn btn-save" type="button" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
+          <!-- <button class="btn btn-save" type="button" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
+          <a class="btn btn-cancel" href="/customer" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Cancel</a>
+          </form> --> 
+          <form class="row" [formGroup]="editform" (submit)="update()">
+            <div class="form-group col-md-4">
+              <label class="control-label">Card ID</label>
+              <input class="form-control" type="text" value="{{this.data.idCard}}" formControlName="idCard">
+            </div>
+            <div class="form-group col-md-4">
+              <label class="control-label">Name</label>
+              <input class="form-control" type="text" formControlName="nameCus" value="{{this.data.nameCus}}">
+            </div>
+
+            <!-- <div class="form-group  col-md-4">
+              <label class="control-label">Phone</label>
+              <input class="form-control" type="phone" value="phoneCus" formControlName="phoneCus"
+                value="{{this.data.phoneCus}}">
+            </div> -->
+            <div class="form-group col-md-3">
+              <label class="control-label">Sex</label>
+              <select class="form-control" id="exampleSelect2" formControlName="sexCus" value="{{this.data.sexCus}}">
+                <option>-- Choose your gender --</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label class="control-label">Address</label>
+              <input class="form-control" type="text" formControlName="address" value="{{this.data.address}}">
+            </div>
+            <!-- <button class="btn btn-save" type="submit">Save</button>
+            <a class="btn btn-cancel" href="/customer">Cancel</a> -->
+            <button class="btn btn-save" type="submit" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
           <a class="btn btn-cancel" href="/customer" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Cancel</a>
           </form>
         </div>

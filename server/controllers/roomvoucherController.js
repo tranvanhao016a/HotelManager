@@ -1,13 +1,13 @@
-const Service= require("../model/service.model");
-const Customer= require("../model/customer.model");
-const Staff= require("../model/staff.model");
-const Room= require("../model/room.model");
-const RoomVoucher=require("../model/roomvoucher.model")
+const Service= require("../models/service.model");
+const Customer= require("../models/customer.model");
+const Staff= require("../models/staff.model");
+const Room= require("../models/room.model");
+const RoomVoucher=require("../models/roomvoucher.model")
 const roomvoucherController={
     getAllRoomVoucher: async(req,res)=>{
         try{
-            const service=await RoomVoucher.find().populate("staff").populate("room").populate("customer").populate("services");
-            res.json(service);
+            const roomVouchers=await RoomVoucher.find().populate("staff").populate("room").populate("customer").populate("services");
+            res.json(roomVouchers);
             // res.json(req.body)
         }catch(err){
             res.status(500).json(err);
@@ -15,8 +15,8 @@ const roomvoucherController={
     },
     getRoomVoucher: async(req,res)=>{
         try{
-            const service=await RoomVoucher.find({idRoomVoucher:req.params.idRoomVoucher}).populate("staff").populate("room").populate("customer").populate("services");
-            res.json(service);
+            const roomVoucher=await RoomVoucher.findOne({idRoomVoucher:req.params.idRoomVoucher}).populate("staff").populate("room").populate("customer").populate("services");
+            res.json(roomVoucher);
         }catch(err){
             res.status(500).json(err);
         }
@@ -27,21 +27,33 @@ const roomvoucherController={
             // console.log(roomvoucher)
             if(roomvoucher==null){
                 // console.log("askfhaksjjh")
+                // thêm room voucher
                 const newRoomVoucher=new RoomVoucher({
                     idRoomVoucher : req.body.idRoomVoucher,
                     bookingDate : req.body.bookingDate ,
                     payDay : req.body.payDay ,
                     numCus : req.body.numCus ,
                     adults : req.body.adults ,
-                    children : req.body.children ,
+                    children : req.body.children 
                 });
                 const saveRoomVoucher=await newRoomVoucher.save();
-
-                var room=await Room.findOneAndUpdate(
+                // them room voucher vao room
+                var roomRV=await Room.findOneAndUpdate(
                     { idRoom : req.body.idRoom },
                     { $set: {roomVoucher:saveRoomVoucher._id}});
+                var staffRV=await Staff.findOneAndUpdate(
+                    { nameStaff : req.body.nameStaff },
+                    { $push: {roomVouchers:saveRoomVoucher._id}});
+                await RoomVoucher.findByIdAndUpdate(
+                    saveRoomVoucher._id ,
+                    { $set: {
+                        staff:staffRV._id,
+                        room:roomRV._id
+                    }});    
                 // console.log(room)
-                var checkCus =await Customer.findOne({phoneCus:req.body.phoneCus})    
+                // kiem tra khách hàng
+                var checkCus =await Customer.findOne({phoneCus:req.body.phoneCus}) 
+                // them khách hàng mới    
                 if(checkCus==null){
                     const newCustomer=new Customer({
                         idCard :req.body.idCard,
@@ -51,6 +63,7 @@ const roomvoucherController={
                         address:req.body.address
                     });
                     const saveCustomer=await newCustomer.save();
+                    
                     await Customer.findByIdAndUpdate(saveCustomer["_id"],{ $push: {roomVouchers:saveRoomVoucher._id}});
                     await RoomVoucher.findByIdAndUpdate(saveRoomVoucher["_id"],{ $set: {room:room["_id"],customer:saveCustomer._id}});
                     // console.log("dhsdhdhdh")
@@ -58,7 +71,7 @@ const roomvoucherController={
                     await Customer.findByIdAndUpdate(checkCus["_id"],{ $push: {roomVouchers:saveRoomVoucher._id}});
                     await RoomVoucher.findByIdAndUpdate(saveRoomVoucher["_id"],{ $set: {room:room["_id"],customer:checkCus["_id"]}});
                     // console.log("fffffff")
-                }
+                }              
                 res.json(saveRoomVoucher);
             }
             else{
@@ -117,6 +130,5 @@ const roomvoucherController={
             res.status(500).json(err);
         }
     }
-
 }
 module.exports=roomvoucherController;

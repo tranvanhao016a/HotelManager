@@ -8,31 +8,37 @@ import { Observable } from 'rxjs';
 export class RoomService {
 
   constructor(public http: HttpClient) { }
-  public async getRoom(apiPath:string):Promise<Observable<any>> {
-    let result = this.http.get(environment.endpoint +apiPath);
+  public async getAllRoom():Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'room/getAllRoom');
     return result;
    }
-
-   public async editRoom(idRoom :string,kindRoom:object,status:string, roomVoucher:object){
+   public async getRoom(idRoom:string):Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'room/getRoom/'+idRoom);
+    return result;
+   }
+   public async editRoom(idRoom :string,kindRoom:object,status:string){
     return this.http.put(environment.endpoint+'room/updateRoom/'+idRoom,{
        idRoom :idRoom,
-        kindRoom : kindRoom, status : status,roomVouche:roomVoucher
+        kindRoom : kindRoom, status : status
+     
       },
-    
+
     );
    }
 
-   public async addRoom(idRoom :string,kindRoom:object,status:string, roomVoucher:object){
+   public async addRoom(idRoom :string,kindRoom:object,status:string){
     return this.http.post(environment.endpoint+'room/addRoom/',{
        idRoom :idRoom,
-        kindRoom : kindRoom, status : status,roomVouche:roomVoucher
+        kindRoom : kindRoom, 
+        status : status,
+        // roomVouche:roomVoucher
       },
-    
+
     );
   }
    public async deteleRoom(idRoom:string)
    {
     return this.http.delete(environment.endpoint+'room/deleteRoom/'+idRoom)
    }
-   
+
 }

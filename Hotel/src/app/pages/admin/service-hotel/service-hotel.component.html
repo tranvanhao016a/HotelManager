@@ -1,5 +1,5 @@
 <body class="app sidebar-mini rtl  pace-done" style="font-size: 20px;">
-    <!-- <div class="pace  pace-inactive">
+  <!-- <div class="pace  pace-inactive">
       <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
         <div class="pace-progress-inner"></div>
       </div>
@@ -21,7 +21,8 @@
           <div class="tile-body">
             <div class="row element-button">
               <div class="col-sm-2">
-                <a class="btn btn-add btn-sm" (click)="navigate('/add-service')" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
+                <a class="btn btn-add btn-sm" href="/add-service" style="font-size:13px ;" title="Thêm"><i
+                    class="fas fa-plus"></i>
                   Add new service</a>
               </div>
 
@@ -31,7 +32,8 @@
               <thead>
                 <tr>
                   <th width="10">
-                    <input type="checkbox" id="all" onclick="checkbox()"></th>
+                    <input type="checkbox" id="all" onclick="checkbox()">
+                  </th>
                   <th width="15%">Service ID</th>
                   <th>Service name</th>
                   <!-- <th>Unit</th> -->
@@ -42,19 +44,27 @@
               <tbody>
                 <tr *ngFor="let item of data">
                   <td width="10">
-                  <input type="checkbox" name="check1" value="1"></td>
+                    <input type="checkbox" name="check1" value="1">
+                  </td>
                   <td>{{item.idService}}</td>
                   <td>{{item.nameService}}</td>
                   <!-- <td><img src="/img-sanpham/reno.jpg" alt="" width="50px;"></td>-->
                   <!-- <td>1 person</td>  -->
-                  <td >{{item.priceService}} </td>
+                  <td>{{item.priceService}} </td>
                   <td class="table-td-center">
-                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                      onclick="myFunction(this)" style="font-size: 20px;"><i class="fas fa-trash-alt"></i>
+                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" 
+                    (click)="deteleS(item.idService)"
+                      style="font-size: 20px;"><i class="fas fa-trash-alt"></i>
                     </button>
-                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                    (click)="navigate('/edit-service')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
-                    </button>
+                    <!-- <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                    (click)="navigate('/edit-service',item.idService)" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
+                    </button> -->
+                    <!-- <a > -->
+                      <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                      (click)="navigate('/edit-service',item.idService)" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
+                      </button>
+                    <!-- </a> -->
+
                   </td>
                 </tr>
                 <!-- <tr>
@@ -74,7 +84,7 @@
                       </button>
                     </td>
                   </tr> -->
-                  <!-- <tr>
+                <!-- <tr>
                     <td width="10">
                     <input type="checkbox" name="check1" value="1"></td>
                     <td>158 </td>
@@ -100,4 +110,4 @@
   </main>
 
 
-    </body>
+</body>

@@ -1,5 +1,5 @@
-const KindRoom= require("../model/kindroom.model");
-const Room=require("../model/room.model");
+const KindRoom= require("../models/kindroom.model");
+const Room=require("../models/room.model");
 
 const kindroomController={
     getAllKindRoom: async(req,res)=>{
@@ -12,7 +12,7 @@ const kindroomController={
     },
     getKindRoom: async(req,res)=>{
         try{
-            const kindroom=await KindRoom.find({idKindRoom:req.params.idKindRoom}).populate("rooms");
+            const kindroom=await KindRoom.findOne({idKindRoom:req.params.idKindRoom}).populate("rooms");
             res.json(kindroom);
         }catch(err){
             res.status(500).json(err);

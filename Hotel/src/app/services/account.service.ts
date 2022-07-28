@@ -8,31 +8,32 @@ import { environment } from 'src/environments/environment';
 })
 export class AccountService {
   constructor(public http: HttpClient) { }
-  public async getAccount(apiPath:string):Promise<Observable<any>> {
-    let result = this.http.get(environment.endpoint +apiPath);
+  public async getAllAccounts():Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'account/getAllAccount');
     return result;
    }
 
-   public async editAccount(email :string,password:string){
-    return this.http.put(environment.endpoint+'account/updateAccount/'+email,{
-      email :email,
-        password :password, 
+   public async getAccount(user :string):Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'account/getAccount/'+user);
+    return result;
+   }
+
+   public async editAccount(user :string,email:string,password:string){
+    return this.http.put(environment.endpoint+'account/updateAccount/'+user,{
+        user :user,
+        email:email,
+        password :password,
       },
-    
+
     );
    }
 
-   public async addAccount(email :string,password:string){
-        return this.http.put(environment.endpoint+'account/addAccount/'+email,{
-          email :email,
-            password :password, 
-          },
-    );
-  }
-   public async deteleRAccount(email:string)
-   {
-    return this.http.delete(environment.endpoint+'account/deleteAccount/'+email)
-   }
-   
+  //  public async addAccount(user :string,password:string){
+  //       return this.http.put(environment.endpoint+'account/addAccount/'+user,{
+  //          user :user,
+  //           password :password,
+  //         },
+  //   );
+  // }
 }
 

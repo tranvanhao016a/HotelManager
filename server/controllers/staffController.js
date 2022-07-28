@@ -1,6 +1,6 @@
-const Staff= require("../model/staff.model");
-const Account=require("../model/account.model")
-const RoomVoucher=require("../model/roomvoucher.model")
+const Staff= require("../models/staff.model");
+const Account=require("../models/account.model")
+const RoomVoucher=require("../models/roomvoucher.model")
 
 const staffController={
     getAllStaff: async(req,res)=>{
@@ -13,7 +13,7 @@ const staffController={
     },
     getStaff: async(req,res)=>{
         try{
-            const staff=await Staff.find({idStaff:req.params.idstaff}).populate("email").populate("roomVouchers");
+            const staff=await Staff.findOne({idStaff:req.params.idstaff}).populate("email").populate("roomVouchers");
             res.json(staff);
         }catch(err){
             res.status(500).json(err);
@@ -21,7 +21,7 @@ const staffController={
     },
     addStaff: async(req,res)=>{
         try{
-            if(req.body.position=="receptionist"){
+            if(req.body.position=="Receptionist"){
                 const newStaff=new Staff(
                     {        
                         idStaff: req.body.idStaff,              
@@ -34,12 +34,12 @@ const staffController={
                     }
                 );
                 const saveStaff=await newStaff.save();          
-                var checkAccount= await Account.findOne({user:req.body.user});
+                var checkAccount= await Account.findOne({username:req.body.username});
                 // // console.log(checkAccount+"7777777"+typeof checkAccount);
                 var flag;
                 if(checkAccount==null){
                     const newAccount=new Account({
-                        user : req.body.user,
+                        username : req.body.username,
                         password :req.body.password,
                         staff: saveStaff._id
                     });
@@ -47,7 +47,7 @@ const staffController={
                     flag=saveAccount._id;
             }
             else {
-                var account= await Account.findOneAndUpdate({user:req.body.user},{ $set: {staff:saveStaff._id}});
+                var account= await Account.findOneAndUpdate({username:req.body.username},{ $set: {staff:saveStaff._id}});
                 flag=account["_id"];
         }
         var savestaff = await Staff.findOneAndUpdate({_id:saveStaff._id},{ $set: {email:flag}});
@@ -66,11 +66,11 @@ const staffController={
         try{
             var updateStaff=await Staff.findOne({ idStaff : req.params.idstaff })
             // console.log(updateStaff["roomVouchers"])
-            var accountde= Account.findById(updateStaff["email"]);
-            await accountde.updateOne({ $set: {staff:null}})
-            var account= Account.findOne({user:req.body.user});
-            await account.updateOne({ $set: {staff:updateStaff["_id"]}})
-            var acc=await Account.findOne({user:req.body.user});
+            // var accountde= Account.findById(updateStaff["email"]);
+            // await accountde.updateOne({ $set: {staff:updateStaff["_id"]}})
+            // var account= Account.findOne({user:req.body.user});
+            // await account.updateOne({ $set: {staff:updateStaff["_id"]}})
+            // var acc=await Account.findById(updateStaff["email"]);
 
             await Staff.findOneAndUpdate(
                 { idStaff : req.params.idstaff },
@@ -82,7 +82,7 @@ const staffController={
                     sexStaff:req.body.sexStaff,
                     status:req.body.status,
                     address:req.body.address,
-                    email:acc["_id"]
+                    // email:acc["_id"]
                     }
                 }
                );

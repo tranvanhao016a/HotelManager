@@ -21,10 +21,10 @@
         <div class="tile">
           <div class="tile-body">
             <div class="row element-button">
-              <div class="col-sm-2">
+              <!-- <div class="col-sm-2">
                 <a class="btn btn-add btn-sm" (click)="navigate('/add-customer')" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
                   Add new customer</a>
-              </div>
+              </div> -->
               <!-- <div class="col-sm-2">
                   <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i class="fas fa-file-upload"></i> Tải từ file</a>
                 </div>
@@ -55,8 +55,7 @@
                     cellspacing="0" border="0" id="sampleTable" role="grid" aria-describedby="sampleTable_info">
                     <thead>
                       <tr role="row">
-                        <th width="10" class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label=": activate to sort column ascending" style="width: 12.8px;">
+                        <th >
                           <input type="checkbox" id="all" onclick="checkbox()">
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
@@ -69,12 +68,9 @@
                         <!-- <th class="sorting_asc" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
                           aria-label="Ngày sinh: activate to sort column descending" aria-sort="ascending"
                           style="width: 74.4375px;">Date of birth</th> -->
-                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Giới tính: activate to sort column ascending" style="width: 29.875px;">Sex</th>
-                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="SĐT: activate to sort column ascending" style="width: 78.625px;">SĐT</th>
-                        <th class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
-                          aria-label="Nhận phòng: activate to sort column ascending" style="width: 34.4375px;">Check in
+                        <th >Sex</th>
+                        <th >SĐT</th>
+                        <th >Check in
                         </th>
                         <th width="100" class="sorting" tabindex="0" aria-controls="sampleTable" rowspan="1" colspan="1"
                           aria-label="Tính năng: activate to sort column ascending" style="width: 100px;">Feature
@@ -86,7 +82,7 @@
                         <td width="10" class=""><input type="checkbox" name="check3" value="3"></td>
                         <td>{{item.idCard}}</td>
                         <td>{{item.nameCus}}</td>
-                        <td>Số 3 Hòa Bình, Phường 3, Quận 11, Hồ Chí Minh </td>
+                        <td>{{item.address}}</td>
                         <!-- <td class="sorting_1">02/06/1998</td> -->
                         <td>{{item.sexCus}}</td>
                         <td>{{item.phoneCus}}</td>
@@ -95,7 +91,7 @@
                             onclick="myFunction()" style="font-size: 20px"><i class="fas fa-trash-alt"></i>
                           </button>
                           <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                          (click)="navigate('/edit-customer')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
+                          (click)="navigate('/edit-customer',item.phoneCus)" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
                           </button>
                         </td>
                       </tr>

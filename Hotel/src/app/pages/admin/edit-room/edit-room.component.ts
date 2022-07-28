@@ -13,9 +13,9 @@ export class EditRoomComponent implements OnInit {
  public data : KindRoom[]= [];
  public editform!: FormGroup;
   constructor(public Room: RoomService,
-     public Kind : KindroomService,
+      public Kind : KindroomService,
       public router : Router,
-       public route: ActivatedRoute,
+      public route: ActivatedRoute,
       public formBuider : FormBuilder) {
         this.editform = this.formBuider.group({
           status:'',
@@ -36,10 +36,10 @@ export class EditRoomComponent implements OnInit {
     console.log(this.editform.value);
    (await this.Room.editRoom(
 
-   this.id,
+      this.id,
       this.editform.value.kindRoom
       ,this.editform.value.status,
-      this.editform.value.roomVoucher
+      
       
    )).subscribe((value: any) => {
       alert(value['message']);

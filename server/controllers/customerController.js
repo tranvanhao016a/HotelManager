@@ -1,5 +1,5 @@
-const Customer= require("../model/customer.model");
-const RoomVoucher=require("../model/roomvoucher.model")
+const Customer= require("../models/customer.model");
+const RoomVoucher=require("../models/roomvoucher.model")
 
 const customerController={
     getAllCustomer: async(req,res)=>{

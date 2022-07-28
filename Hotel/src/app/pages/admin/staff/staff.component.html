@@ -21,12 +21,12 @@
         <div class="tile-body">
           <div class="row element-button">
             <div class="col-sm-2">
-              <a class="btn btn-add btn-sm" (click)="navigate('/add-staff')" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
+              <a class="btn btn-add btn-sm" href="/add-staff" style="font-size:13px ;" title="Thêm"><i class="fas fa-plus"></i>
                 Create a new staff</a>
             </div>
           </div>
-          <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
-            id="sampleTable">
+          <table class="table table-hover table-bordered js-copytextarea dataTable no-footer" cellpadding="0"
+          cellspacing="0" border="0" id="sampleTable" role="grid" aria-describedby="sampleTable_info">
             <thead>
               <tr>
                 <th width="10">
@@ -49,18 +49,18 @@
                 <input type="checkbox" name="check1" value="1"></td>
                 <td>{{item.idStaff}}</td>
                 <td>{{item.nameStaff}}</td>
-                <td>155-157 Trần Quốc Thảo, Quận 3, Hồ Chí Minh </td>
+                <td>{{item.address}}</td>
                 <!-- <td>12/02/1999</td> -->
                 <td>{{item.sexStaff}}</td>
                 <td>{{item.phoneStaff}}</td>
                 <td>{{item.position}}</td>
                 <td>{{item.status}}</td>
-                <td class="table-td-center">
+                <td >
                   <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                    onclick="myFunction(this)" style="font-size: 20px"><i class="fas fa-trash-alt"></i>
+                    (click)="deteleS(item.idStaff)" style="font-size: 20px"><i class="fas fa-trash-alt"></i>
                   </button>
                   <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                  (click)="navigate('/edit-staff')" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
+                  (click)="navigate('/edit-staff',item.idStaff)" style="margin-left: 10%;font-size: 20px;"><i class="fas fa-edit"></i>
                   </button>
                 </td>
               </tr>

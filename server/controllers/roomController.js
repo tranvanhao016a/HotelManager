@@ -1,6 +1,6 @@
-const Room= require("../model/room.model");
-const RoomVoucher=require("../model/kindroom.model");
-const KindRoom = require("../model/kindroom.model");
+const Room= require("../models/room.model");
+const RoomVoucher=require("../models/kindroom.model");
+const KindRoom = require("../models/kindroom.model");
 
 const roomController={
     getAllRoom: async(req,res)=>{
@@ -14,7 +14,7 @@ const roomController={
     getRoom: async(req,res)=>{
         try{
             // const room=await Room.find({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
-            const room=await Room.find({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
+            const room=await Room.findOne({idRoom:req.params.idRoom}).populate("kindRoom").populate("roomVoucher");
             res.json(room);
         }catch(err){
             res.status(500).json(err);
@@ -30,11 +30,14 @@ const roomController={
                     status :req.body.status
                 });
                 const saveRoom=await newRoom.save();
-                res.json(saveRoom);
-                var checkKR= await KindRoom.findById(room["kindRoom"]);
+                // res.json(saveRoom);
+                var checkKR= await KindRoom.findOne({idKindRoom:req.body.kindRoom});
                 if(checkKR!=null){
-                    var kindromup=KindRoom.findOne({ nameKindRoom : req.body.nameKindRoom });
-                    await kindromup.updateOne({ $push: {rooms:kd["_id"]}})
+                    var kindromup= await KindRoom.findOneAndUpdate({ nameKindRoom : req.body.nameKindRoom },
+                        { $push: {rooms:saveRoom._id}});
+                  await Room.findByIdAndUpdate(saveRoom._id,
+                            { $set: {kindRoom:kindromup._id}});
+                    // await kindromup.updateOne({ $push: {rooms:kd["_id"]}})
                 }
 
             }
@@ -48,7 +51,7 @@ const roomController={
     },
     updateRoom: async(req,res)=>{
         try{
-            var kindrom= await KindRoom.findOne({ nameKindRoom : req.body.nameKindRoom });
+            var kindrom= await KindRoom.findOne({ nameKindRoom : req.body.kindRoom });
             // console.log(kindrom)
             if(kindrom!=null){
                 await Room.findOneAndUpdate(

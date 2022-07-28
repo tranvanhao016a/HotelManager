@@ -1,5 +1,5 @@
-const Service= require("../model/service.model");
-const RoomVoucher=require("../model/roomvoucher.model")
+const Service= require("../models/service.model");
+const RoomVoucher=require("../models/roomvoucher.model")
 const serviceController={
     getAllService: async(req,res)=>{
         try{
@@ -11,7 +11,7 @@ const serviceController={
     },
     getService: async(req,res)=>{
         try{
-            const service=await Service.find({nameService:req.params.nameService}).populate("roomVouchers");;
+            const service=await Service.findOne({idService:req.params.idService}).populate("roomVouchers");;
             res.json(service);
         }catch(err){
             res.status(500).json(err);
@@ -19,7 +19,7 @@ const serviceController={
     },
     addService: async(req,res)=>{
         try{
-            var service =await KindRoom.findOne({nameKindRoom:req.body.nameKindRoom})
+            var service = await Service.findOne({nameService:req.body.nameService})
             // console.log(kindroom)
             if(service==null){
                 const newService=new Service(req.body);

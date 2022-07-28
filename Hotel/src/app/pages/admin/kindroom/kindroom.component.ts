@@ -15,13 +15,18 @@ export class KindroomComponent implements OnInit {
      public route: ActivatedRoute,) { }
 
   ngOnInit(): void {
-    this.get('kindroom/getAllKindRoom');
+    this.get();
   }
-  public async get(apiPath:string){
-    (await  this.Kind.getkindRoom(apiPath)).subscribe(valua=>(this.data = valua as KindRoom[]));
+  public async get(){
+    (await  this.Kind.getAllkindRoom()).subscribe(valua=>(this.data = valua as KindRoom[]));
       console.log(this.data)
   }
-  navigate(path: string, id: string) {
-    this.router.navigate([path, { id: id }]);
+  navigate(path: string, idKindRoom: string) {
+    this.router.navigate([path, { idKindRoom: idKindRoom }]);
+  }
+  public async deteleS(apiPath: string) {
+    (await this.Kind.deteleKind(apiPath)).subscribe(()=>{
+      this.get();
+    })
   }
 }

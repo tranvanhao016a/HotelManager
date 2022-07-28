@@ -17,30 +17,30 @@
 
           <h3 class="tile-title">Edit Kind of Room</h3>
           <div class="tile-body">
-            <form class="row">
+            <form class="row" [formGroup]="editform" (submit)="update()" >
+              <!-- <div class="form-group col-md-4">
+                <label class="control-label">ID KindRoom </label>
+                <input class="form-control" type="text" formControlName="idKindRoom">
+              </div> -->
               <div class="form-group col-md-4">
-                <label class="control-label">Kind of Room ID</label>
-                <input class="form-control" type="text">
+                <label class="control-label">Name KindRoom </label>
+                <input class="form-control" type="text" formControlName="nameKindRoom" value="{{this.data.nameKindRoom}}">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Image</label>
-                <input class="form-control" type="image" required>
+                <input class="form-control" type="text" required formControlName="image" value="{{this.data.image}}">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Maximum number of guests</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="number" required formControlName="cusMax" value="{{this.data.cusMax}}">
               </div>
               <div class="form-group col-md-4">
                 <label class="control-label">Price</label>
-                <input class="form-control" type="text" required>
-              </div>
-              <div class="form-group col-md-4">
-                <label class="control-label">Room</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="number" required formControlName="priceRoom" value="{{this.data.priceRoom}}">
               </div>
 
-          <button class="btn btn-save" type="button" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Save</button>
-          <a class="btn btn-cancel" href="/kindroom" style="font-size: 30px;width: 500px;margin-top: 2%;margin-left: auto;margin-right: auto;">Cancel</a>
+          <button class="btn btn-save" type="submit" >Save</button>
+          <a class="btn btn-cancel" href="/kindroom" >Cancel</a>
           </form>
         </div>
       </div>

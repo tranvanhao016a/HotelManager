@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class RoomvoucherService {
 
   constructor(public http: HttpClient) { }
-  public async getRoomVoucher(apiPath:string):Promise<Observable<any>> {
-    let result = this.http.get(environment.endpoint +apiPath);
+  public async getRoomVoucher():Promise<Observable<any>> {
+    let result = this.http.get(environment.endpoint +'roomvoucher/getAllRoomVoucher');
     return result;
    }
 }
